@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>营销方案生成 - AI生意参谋</title>
+    <meta name="description" content="根据店铺类型和城市信息，智能生成个性化营销方案">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">AI生意参谋</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="marketing-plan.html">营销方案生成</a></li>
+                <li><a href="wechat-copy.html">朋友圈文案</a></li>
+                <li><a href="festival-plan.html">节日营销方案</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1 class="page-title">营销方案生成器</h1>
+                <p class="page-subtitle">填写店铺信息，AI自动为您生成专业营销方案</p>
+
+                <a href="index.html" class="back-link">← 返回首页</a>
+
+                <!-- 表单区域 -->
+                <div class="form-container">
+                    <form id="marketing-form">
+                        <div class="form-grid">
+                            <!-- 店铺类型 -->
+                            <div class="form-group">
+                                <label class="form-label" for="storeType">店铺类型 *</label>
+                                <select class="form-select" id="storeType" name="storeType" required>
+                                    <option value="">请选择店铺类型</option>
+                                    <option value="奶茶店">奶茶店</option>
+                                    <option value="餐饮店">餐饮店</option>
+                                    <option value="理发店">理发店</option>
+                                    <option value="美容院">美容院</option>
+                                    <option value="服装店">服装店</option>
+                                    <option value="超市">超市</option>
+                                    <option value="其他">其他</option>
+                                </select>
+                            </div>
+
+                            <!-- 城市 -->
+                            <div class="form-group">
+                                <label class="form-label" for="city">城市 *</label>
+                                <input type="text" class="form-input" id="city" name="city" placeholder="例如：北京、上海" required>
+                            </div>
+
+                            <!-- 客单价 -->
+                            <div class="form-group">
+                                <label class="form-label" for="price">客单价（元） *</label>
+                                <input type="number" class="form-input" id="price" name="price" placeholder="例如：98" min="1" required>
+                            </div>
+
+                            <!-- 目标 -->
+                            <div class="form-group full-width">
+                                <label class="form-label">营销目标 *</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" class="radio-input" name="goal" value="拉新" required>
+                                        拉新 - 吸引新客户
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" class="radio-input" name="goal" value="提升复购" required>
+                                        提升复购 - 提升老客户复购率
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" class="radio-input" name="goal" value="提高营业额" required>
+                                        提高营业额 - 提升总体营业额
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- 预算 -->
+                            <div class="form-group">
+                                <label class="form-label" for="budget">活动预算（元） *</label>
+                                <input type="number" class="form-input" id="budget" name="budget" placeholder="例如：5000" min="0" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="generate-button">生成营销方案</button>
+                    </form>
+
+                    <!-- 加载动画 -->
+                    <div class="loading" id="loading">
+                        <div class="spinner"></div>
+                        <p class="loading-text">AI正在生成营销方案...</p>
+                    </div>
+                </div>
+
+                <!-- 结果展示区域 -->
+                <div class="result-container" id="result-container">
+                    <!-- 营销活动 -->
+                    <div class="result-section">
+                        <h3 class="result-title">营销活动</h3>
+                        <div class="result-content">
+                            <h4 id="activity-name" style="color: #e0e7ff; margin-bottom: 0.5rem;"></h4>
+                            <p id="activity-desc"></p>
+                        </div>
+                    </div>
+
+                    <!-- 执行步骤 -->
+                    <div class="result-section">
+                        <h3 class="result-title">执行步骤</h3>
+                        <div class="result-content">
+                            <ol id="steps-list" class="result-list"></ol>
+                        </div>
+                    </div>
+
+                    <!-- 宣传文案 -->
+                    <div class="result-section">
+                        <h3 class="result-title">宣传文案</h3>
+                        <div class="result-content">
+                            <p id="copy-content"></p>
+                        </div>
+                    </div>
+
+                    <!-- 短视频脚本 -->
+                    <div class="result-section">
+                        <h3 class="result-title">短视频脚本</h3>
+                        <div class="result-content">
+                            <p id="video-script"></p>
+                        </div>
+                    </div>
+
+                    <!-- 预期效果 -->
+                    <div class="result-section">
+                        <h3 class="result-title">预期效果</h3>
+                        <div class="result-content">
+                            <p id="expected-result"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                © 2025 AI生意参谋 | 帮助门店老板自动生成赚钱的营销方案
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朋友圈文案生成 - AI生意参谋</title>
+    <meta name="description" content="输入产品、优惠信息，自动生成吸引顾客的朋友圈营销文案">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">AI生意参谋</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="marketing-plan.html">营销方案生成</a></li>
+                <li><a href="wechat-copy.html">朋友圈文案</a></li>
+                <li><a href="festival-plan.html">节日营销方案</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1 class="page-title">朋友圈文案生成器</h1>
+                <p class="page-subtitle">输入产品、优惠信息，自动生成吸引顾客的朋友圈营销文案</p>
+
+                <a href="index.html" class="back-link">← 返回首页</a>
+
+                <!-- 表单区域 -->
+                <div class="form-container">
+                    <form id="wechat-form">
+                        <div class="form-grid">
+                            <!-- 产品 -->
+                            <div class="form-group">
+                                <label class="form-label" for="product">产品名 *</label>
+                                <input type="text" class="form-input" id="product" name="product" placeholder="例如：珍珠奶茶、套餐" required>
+                            </div>
+
+                            <!-- 优惠 -->
+                            <div class="form-group">
+                                <label class="form-label" for="discount">优惠信息 *</label>
+                                <input type="text" class="form-input" id="discount" name="discount" placeholder="例如：第二杯半价、买二送一" required>
+                            </div>
+
+                            <!-- 活动 -->
+                            <div class="form-group full-width">
+                                <label class="form-label" for="activity">活动名称 *</label>
+                                <input type="text" class="form-input" id="activity" name="activity" placeholder="例如：开业酬宾、周年庆、双十一活动" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="generate-button">生成朋友圈文案</button>
+                    </form>
+
+                    <!-- 加载动画 -->
+                    <div class="loading" id="loading">
+                        <div class="spinner"></div>
+                        <p class="loading-text">AI正在生成朋友圈文案...</p>
+                    </div>
+                </div>
+
+                <!-- 结果展示区域 -->
+                <div class="result-container" id="result-container">
+                    <!-- 长文案版本 -->
+                    <div class="result-section">
+                        <h3 class="result-title">长文案版本</h3>
+                        <div class="result-content">
+                            <p id="long-copy"></p>
+                            <button class="copy-button cta-button" data-target="long-copy" style="margin-top: 1rem; padding: 0.5rem 1rem; font-size: 1rem;">复制文案</button>
+                        </div>
+                    </div>
+
+                    <!-- 短文案版本 -->
+                    <div class="result-section">
+                        <h3 class="result-title">短文案版本</h3>
+                        <div class="result-content">
+                            <p id="short-copy"></p>
+                            <button class="copy-button cta-button" data-target="short-copy" style="margin-top: 1rem; padding: 0.5rem 1rem; font-size: 1rem;">复制文案</button>
+                        </div>
+                    </div>
+
+                    <!-- 配图建议 -->
+                    <div class="result-section">
+                        <h3 class="result-title">配图建议</h3>
+                        <div class="result-content">
+                            <p id="image-suggestion"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                © 2025 AI生意参谋 | 帮助门店老板自动生成赚钱的营销方案
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
